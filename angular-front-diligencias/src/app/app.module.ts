@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/app-login.component';
+import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SideBarComponent} from './sidebar/app-sidebar.component';
+import { PreLoaderComponent } from './pre-loader/app-pre-loader.component';
 
 //Own Components
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SideBarComponent,
+    PreLoaderComponent
   ],
   imports: [
     BrowserModule,

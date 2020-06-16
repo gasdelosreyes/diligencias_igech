@@ -1,0 +1,22 @@
+{
+    "name": "back-diligencias",
+    "version": "1.0.0",
+    "description": "BackEnd with Node, Express and MongoDB",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "NODE_ENV=production node server.js",
+        "dev": "nodemon server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "colors": "^1.4.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.19",
+        "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
