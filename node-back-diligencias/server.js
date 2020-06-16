@@ -28,10 +28,12 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 //Importar rutas
-const oficio = require('./routes/oficio')
+const office = require('./routes/office')
+const record = require('./routes/record')
 
 //Montar rutas
-app.use('/diligencias/oficio', oficio);
+app.use('/diligence/record', record);
+app.use('/diligence/office', office);
 
 //Manejador de errores
 app.use(errorHandler);
@@ -42,7 +44,7 @@ const PORT = process.env.PORT || 3000;
 //Levantar servidor
 const server = app.listen(
     PORT,
-    console.log(`Servidor corriendo en modo ${process.env.NODE_ENV} escuchando en el puerto:`.cyan.underline.bold + `${PORT}`.yellow)
+    console.log(`Server running in  ${process.env.NODE_ENV} mode - Listening at Port:`.cyan.underline.bold + `${PORT}`.yellow)
 );
 
 //Manejar promesas y mostrar errores desconocidas
