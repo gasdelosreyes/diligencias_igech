@@ -12,15 +12,16 @@ var OfficeSchema = new mongoose.Schema({
         ref: 'Record',
         required: true
     },
-    destiny: {
+    destinatary: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Destiny',
+        ref: 'Destinatary',
         required: true
     },
     typeOffice: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'officeType',
-        required: true
+        type: String,
+        required: true,
+        default: 'Informe',
+        enum: ['Informe', 'Embargo']
     },
     createdAt: {
         type: Date,

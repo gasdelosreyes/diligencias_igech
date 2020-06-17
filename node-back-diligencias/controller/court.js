@@ -23,11 +23,17 @@ const controller = {
         });
     }),
     createCourt: asyncHandler(async(req, res, next) => {
-        let court = await Court.create(req.body);
-        res.status(200).json({
-            success: true,
-            data: court
-        });
+        let court = await Court.findOne({ 'number': req.body.number });
+        if (!court) {
+            let court = await Court.create(req.body);
+            res.status(200).json({
+                success: true,
+                data: court
+            });
+        } else {
+            return (next(new ErrorResponse(`There's already a Court with that number`)));
+        }
+
     }),
     updateCourt: asyncHandler(async(req, res, next) => {
         let court = await Court.findById(req.params.id);
@@ -51,7 +57,7 @@ const controller = {
         court.remove();
         res.status(200).json({
             successs: true,
-            data: court
+            msg: 'Court deleted'
         });
     })
 };

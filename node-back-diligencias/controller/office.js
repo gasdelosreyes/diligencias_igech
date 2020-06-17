@@ -29,7 +29,16 @@ const controller = {
         });
     }),
     createOffice: asyncHandler(async(req, res, next) => {
-        const office = await Office.create(req.body);
+        req.body.record = req.params.recordId;
+        let record = await Record.findOne({ "number": req.body.record });
+        if (!record) {
+            return (next(new ErrorResponse(`There's no record ${req.body.record}`, 404)));
+        }
+        let destinatary = await Destinatary.findOne({ "name": req.body.destinatary });
+        if (!destinatary) {
+            return (next(new ErrorResponse(`There's no destinatary ${req.body.destinatary}`, 404)));
+        }
+        let office = await Office.create(req.body);
         res.status(201).json({
             success: true,
             data: office

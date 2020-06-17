@@ -4,10 +4,6 @@ const asyncHandler = require('../middleware/async');
 const Record = require('../model/Record');
 
 const controller = {
-    //@Author Gastón De los Reyes
-    //@description Obtener todos los records
-    //@route GET /diligencias/record
-    //@access privado - Usuario logueado
     getRecords: asyncHandler(async(req, res, next) => {
         let record = await Record.find();
         res.status(200).json({
@@ -26,21 +22,29 @@ const controller = {
         })
     }),
     createRecord: asyncHandler(async(req, res, next) => {
-        let record = await Record.create(req.body);
-        res.status(200).json({
-            success: true,
-            data: record
-        });
+        let record = await Record.findOne({ 'number': req.params.number });
+        if (!record) {
+            record = await Record.create(req.body);
+            res.status(200).json({
+                success: true,
+                data: record
+            });
+        } else {
+            return (next(new ErrorResponse(`There's already a record with that number`, 404)));
+        }
     }),
     updateRecord: asyncHandler(async(req, res, next) => {
-        let record = await Record.findById(req.params.id);
+        let record = await Record.findOne({ 'number': req.params.number });
         if (!record) {
-            return (next(new ErrorResponse(`There's no judicial record with the ID ${req.params.id}`, 404)));
+            record = await Record.findById(req.params.id);
+            if (!record) {
+                return (next(new ErrorResponse(`There's no judicial record with the ID ${req.params.id}`, 404)));
+            }
+            record = await Record.findByIdAndUpdate(req.params.id, req.body, {
+                new: true,
+                runValidators: true
+            })
         }
-        record = await Record.findByIdAndUpdate(req.params.id, req.body, {
-            new: true,
-            runValidators: true
-        })
         res.status(200).json({
             success: true,
             data: record

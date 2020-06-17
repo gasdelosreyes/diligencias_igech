@@ -1,7 +1,6 @@
 //Construir el enrutador
 const express = require('express');
 
-
 const router = express.Router();
 
 //Importar el controlador asociado
