@@ -23,6 +23,12 @@ var OfficeSchema = new mongoose.Schema({
         default: 'Informe',
         enum: ['Informe', 'Embargo']
     },
+    state: {
+        type: String,
+        required: true,
+        default: 'Inicio',
+        enum: ['Inicio, Medio, Fin']
+    },
     createdAt: {
         type: Date,
         default: Date.now

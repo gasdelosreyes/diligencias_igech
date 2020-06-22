@@ -31,11 +31,13 @@ if (process.env.NODE_ENV === 'development') {
 const record = require('./routes/record');
 const court = require('./routes/court');
 const destinatary = require('./routes/destinatary');
+const secretary = require('./routes/secretary');
 
 
 //Montar rutas primarias
 app.use('/diligence/record', record);
 app.use('/diligence/court', court);
+app.use('/diligence/secretary', secretary);
 app.use('/diligence/destinatary', destinatary);
 
 //Manejador de errores

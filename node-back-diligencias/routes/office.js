@@ -1,6 +1,6 @@
 //Generar un enrutador
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 //Importar controlador asociado
 const OfficeController = require('../controller/office');

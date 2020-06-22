@@ -21,7 +21,7 @@ var RecordSchema = new mongoose.Schema({
         type: Number,
         trim: true,
         required: true,
-        maxlength: [8, 'Enter the D.N.I of ']
+        maxlength: [8, 'Enter the D.N.I of the debtor']
     },
     createdAt: {
         type: Date,

@@ -29,7 +29,6 @@ const controller = {
         if (!court) {
             return (next(new ErrorResponse(`There's no Court associated`, 404)));
         }
-        let secretary = await Secretary.findOne({ 'number': req.body.number, 'court': req.body.court });
         if (!secretary) {
             let secretary = await Secretary.create(req.body);
             res.status(200).json({
@@ -45,19 +44,14 @@ const controller = {
         if (!secretary) {
             return (next(new ErrorResponse(`There's no secretary with the ID ${req.params.id}`, 404)));
         }
-        secretary = await Secretary.findOne({ 'number': req.body.number });
-        if (!secretary) {
-            secretary = Secretary.findByIdAndUpdate(req.params.id, req.body, {
-                new: true,
-                runValidators: true
-            })
-            res.status(200).json({
-                success: true,
-                data: secretary
-            });
-        } else {
-            return (next(new ErrorResponse(`There's already a Secretary with that number`, 404)));
-        }
+        secretary = await Secretary.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
+        })
+        res.status(200).json({
+            success: true,
+            data: secretary
+        });
     }),
     deleteSecretary: asyncHandler(async(req, res, next) => {
         let secretary = await Secretary.findById(req.params.id);

@@ -4,6 +4,8 @@ const asyncHandler = require('../middleware/async');
 
 //Importar modelo asociado
 const Office = require('../model/Office');
+const Record = require('../model/Record');
+const Destinatary = require('../model/Destinatary');
 
 const controller = {
     //@author Gastón De los Reyes
@@ -29,8 +31,9 @@ const controller = {
         });
     }),
     createOffice: asyncHandler(async(req, res, next) => {
+        console.log("ESTOY EN EL CONTROLADOR");
         req.body.record = req.params.recordId;
-        let record = await Record.findOne({ "number": req.body.record });
+        let record = await Record.findById(req.body.record);
         if (!record) {
             return (next(new ErrorResponse(`There's no record ${req.body.record}`, 404)));
         }
