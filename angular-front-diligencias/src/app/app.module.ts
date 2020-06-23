@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DestinataryComponent } from './components/destinatary/destinatary.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CourtComponent } from './components/court/court.component';
 
 
 //Own Components
 @NgModule({
   declarations: [
     AppComponent,
-    DestinataryComponent
+    DestinataryComponent,
+    CourtComponent
   ],
   imports: [
     BrowserModule,
