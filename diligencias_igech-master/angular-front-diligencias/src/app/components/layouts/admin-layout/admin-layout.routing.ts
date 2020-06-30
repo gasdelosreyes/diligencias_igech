@@ -2,20 +2,17 @@ import { Routes } from '@angular/router';
 
 import { HomeComponent } from '../../home/home.component';
 import { UserComponent } from '../../user/user.component';
-import { TablesComponent } from '../../tables/tables.component';
+import { ListDestinataryComponent } from '../../destinatary/list-destinatary/list-destinatary.component';
 import { TypographyComponent } from '../../typography/typography.component';
-import { IconsComponent } from '../../icons/icons.component'; 
-import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { DestinataryComponent } from '../../destinatary/destinatary.component';
+import { CourtComponent } from '../../court/court.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
     { path: 'usuarios',           component: UserComponent },
-    { path: 'table',          component: TablesComponent },
+    { path: 'list-destinatary', component: ListDestinataryComponent },
     { path: 'expedientes',     component: TypographyComponent },
-    { path: 'destinos',          component: IconsComponent },
-    // { path: 'maps',           component: MapsComponent },
-    { path: 'juzgados',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'destinos',          component: DestinataryComponent },
+    { path: 'juzgados',  component: CourtComponent },    
 ];

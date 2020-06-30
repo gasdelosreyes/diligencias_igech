@@ -1,6 +1,6 @@
 export class Court {
 	id:String;
-	number:Number;
+	number:String;
 	description:String;
 	address: String;
 }

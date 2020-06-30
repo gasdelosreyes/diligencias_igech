@@ -8,13 +8,14 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './components/shared/navbar/navbar.module';
 import { FooterModule } from './components/shared/footer/footer.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
-// import {DataTablesModule} from 'angular-datatables';
+import {MatTableModule} from '@angular/material/table';
 
 
 
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
+import { ListDestinataryComponent } from './components/destinatary/list-destinatary/list-destinatary.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    ListDestinataryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

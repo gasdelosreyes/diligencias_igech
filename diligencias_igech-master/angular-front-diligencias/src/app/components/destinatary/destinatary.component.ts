@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DestinataryService } from '../../services/destinatary.service';
 import { NgForm } from '@angular/forms';
-import { formatNumber } from '@angular/common';
+// import { formatNumber } from '@angular/common';
 
 @Component({
   selector: 'app-destinatary',
