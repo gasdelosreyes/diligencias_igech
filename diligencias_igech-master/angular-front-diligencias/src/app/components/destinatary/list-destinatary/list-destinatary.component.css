@@ -1,0 +1,9 @@
+#container {
+    margin: 4rem auto;
+    width: 80%;
+}
+
+#search {
+    margin-bottom: 2rem;
+    width: 15em;
+}

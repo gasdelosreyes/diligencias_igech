@@ -9,7 +9,8 @@ import { NavbarModule } from './components/shared/navbar/navbar.module';
 import { FooterModule } from './components/shared/footer/footer.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 
 import { AppComponent } from './app.component';
@@ -22,11 +23,13 @@ import { ListDestinataryComponent } from './components/destinatary/list-destinat
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,    
     HttpClientModule,
     NavbarModule,
     FooterModule,
-    SidebarModule,
-    // DataTablesModule,
+    SidebarModule,    
     AppRoutingModule
   ],
   declarations: [

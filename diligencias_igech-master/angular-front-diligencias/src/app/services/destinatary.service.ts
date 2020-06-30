@@ -36,6 +36,10 @@ export class DestinataryService {
         this.destinataryUpdated.next([...this.destinatarys]);
       });
     }
+
+    getDestinataryUpdateListener(){
+      return this.destinataryUpdated.asObservable();
+    }
     createDistanatarys(name: String, address: String, contact: String, cost: Number){
       const destinatary : Destinatary = {id: null, name, address, contact, cost};
       this.http

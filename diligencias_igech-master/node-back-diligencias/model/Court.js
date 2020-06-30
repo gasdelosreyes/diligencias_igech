@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 var CourtSchema = new mongoose.Schema({
-    number: {
-        type: Number,
+    name: {
+        type: String,
         trim: true,
         required: [true, `The court needs an identification number`],
         unique: true

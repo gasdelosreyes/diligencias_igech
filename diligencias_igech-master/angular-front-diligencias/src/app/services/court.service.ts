@@ -26,7 +26,7 @@ export class CourtService {
       .pipe(map((courtData) =>{
         return courtData.data.map(court => {
           return {
-            number: court.number,
+            name: court.name,
             description: court.description,
             address: court.address,            
             id: court._id
@@ -40,8 +40,8 @@ export class CourtService {
     }
 
     // MÉTODO PARA GUARDAR UN NUEVO JUZGADO
-    createCourts(number: String, description: String, address: String){
-      const court : Court = {id: null, number, description, address};
+    createCourts(name: String, description: String, address: String){
+      const court : Court = {id: null, name, description, address};
       this.http
       .post<{success: Boolean, data: any}>(
         `${this.URL_API}`, court

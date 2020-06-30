@@ -11,8 +11,9 @@ import { CourtComponent } from '../../court/court.component';
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
     { path: 'usuarios',           component: UserComponent },
-    { path: 'list-destinatary', component: ListDestinataryComponent },
+    { path: 'destinos', component: ListDestinataryComponent },
     { path: 'expedientes',     component: TypographyComponent },
-    { path: 'destinos',          component: DestinataryComponent },
+    { path: 'destinos/crear',          component: DestinataryComponent },
+    { path: 'destinos/editar:destinoId',          component: DestinataryComponent },
     { path: 'juzgados',  component: CourtComponent },    
 ];

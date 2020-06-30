@@ -14,7 +14,7 @@ export class CourtComponent implements OnInit {
     if(form.invalid){
       return;
     }
-    this.service.createCourts(form.value.number, form.value.description, form.value.address);
+    this.service.createCourts(form.value.name, form.value.description, form.value.address);
     form.resetForm();
   }
 

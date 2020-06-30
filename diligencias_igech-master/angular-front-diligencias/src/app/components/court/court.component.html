@@ -12,14 +12,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Juzgados</label>
-                                        <input type="text" class="form-control" placeholder="Nombre de Juzgado">
+                                        <label>Juzgado</label>
+                                        <input type="text" class="form-control" name="name" ngModel required #name="ngModel" placeholder="Nombre de Juzgado">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Teléfono</label>
-                                        <input type="text" class="form-control" placeholder="Teléfono">
+                                        <label>Descripcion</label>
+                                        <input type="text" class="form-control" name="description" ngModel required #description="ngModel" placeholder="Breve descripcion">
                                     </div>
                                 </div>
                             </div>
@@ -28,7 +28,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Dirección</label>
-                                        <input type="text" class="form-control" placeholder="Dirección">
+                                        <input type="text" class="form-control" name="address" ngModel required #address="ngModel" placeholder="Dirección">
                                     </div>
                                 </div>
                             </div>                          

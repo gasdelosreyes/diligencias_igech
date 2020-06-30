@@ -1,41 +1,53 @@
-<div class="container">
-    <input id="search" (keyup)="applyFilter($event)" placeholder="Filtro de busqueda">
-    <button routerLink="create" class="btn btn-primary"><i class="material-icons left">create</i>NUEVO</button>
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
-            <!-- Position Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Destino </th>
-                <td mat-cell *matCellDef="let destinatary"> {{destinatary.name}} </td>
-            </ng-container>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">                    
+                         <div class="row">   
+                         <div class="col-md-9">                                     
+                        <input id="search" (keyup)="applyFilter($event)" class="form-control" placeholder="Filtro de búsqueda"> 
+                        </div>
+                           <div class="col-md-3">  
+                           <button routerLink="crear" class="btn btn-success btn-fill pull-right"><i class="material-icons left">create</i>Nuevo</button> 
+                            </div>                            
+                        </div>                          
+                        <table class="table table-striped table-bordered table-sm row-border hover" mat-table [dataSource]="dataSource" matSort>
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Destino </th>
+                                <td mat-cell *matCellDef="let destinatary"> {{destinatary.name}} </td>
+                            </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="address">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </th>
-                <td mat-cell *matCellDef="let destinatary"> {{destinatary.address}} </td>
-            </ng-container>
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="address">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </th>
+                                <td mat-cell *matCellDef="let destinatary"> {{destinatary.address}} </td>
+                            </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="contact">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contacto </th>
-                <td mat-cell *matCellDef="let destinatary"> {{destinatary.contact}} </td>
-            </ng-container>
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="contact">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contacto </th>
+                                <td mat-cell *matCellDef="let destinatary"> {{destinatary.contact}} </td>
+                            </ng-container>
 
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="cost">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Costo </th>
-                <td mat-cell *matCellDef="let destinatary"> {{destinatary.cost}} </td>
-            </ng-container>
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef> Acción </th>
-                <td mat-cell *matCellDef="let destinatary" class="action-link">
-                    <a (click)="editDestinatary(destinatary)"><i class="material-icons">edit</i></a>
-                    <a (click)="deleteDestinatary(destinatary)"><i class="material-icons">delete_forever</i></a>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
-    </div>
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="cost">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Costo </th>
+                                <td mat-cell *matCellDef="let destinatary"> {{destinatary.cost}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Acción </th>
+                                <td mat-cell *matCellDef="let destinatary" class="action-link">
+                                    <a (click)="editDestinatary(destinatary)"><i class="material-icons">edit</i></a>
+                                    <a (click)="deleteDestinatary(destinatary)"><i class="material-icons">delete_forever</i></a>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+                    </div>
+</div>
+</div>
+</div>
 </div>
