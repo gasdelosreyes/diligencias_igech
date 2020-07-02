@@ -14,6 +14,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'destinos', component: ListDestinataryComponent },
     { path: 'expedientes',     component: TypographyComponent },
     { path: 'destinos/crear',          component: DestinataryComponent },
-    { path: 'destinos/editar:destinoId',          component: DestinataryComponent },
-    { path: 'juzgados',  component: CourtComponent },    
+    { path: 'destinos/editar/:destinataryId', component: DestinataryComponent },
+    { path: 'juzgados',  component: CourtComponent },
 ];
