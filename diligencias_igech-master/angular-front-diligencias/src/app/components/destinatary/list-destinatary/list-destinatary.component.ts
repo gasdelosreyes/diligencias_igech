@@ -42,11 +42,8 @@ export class ListDestinataryComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  editDestinatary(destinatary: Destinatary){
-    console.log(destinatary);
-  }
   deleteDestinatary(destinatary: Destinatary){
-    console.log(destinatary);
+    this.service.deleteDestinatary(destinatary.id);
   }
 
   ngOnDestroy() {

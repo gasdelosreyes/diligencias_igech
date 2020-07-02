@@ -63,5 +63,8 @@
     "ts-node": "8.6.2",
     "tslint": "6.1.0",
     "typescript": "3.7.5"
-  }
+  },
+  "description": "[![version][version-badge]][CHANGELOG] ![license][license-badge]",
+  "main": "karma.conf.js",
+  "author": ""
 }

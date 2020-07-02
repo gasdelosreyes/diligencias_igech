@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 var OfficeSchema = new mongoose.Schema({
     number: {
-        type: Number,
+        type: String,
         trim: true,
         required: [true, 'The office must have a number for identification'],
         unique: true
@@ -21,7 +21,7 @@ var OfficeSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: 'Informe',
-        enum: ['Informe', 'Embargo']
+        enum: ['Informe', 'Embargo', 'Ampliación de Embargo']
     },
     state: {
         type: String,
