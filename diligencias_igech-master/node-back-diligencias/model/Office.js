@@ -21,7 +21,7 @@ var OfficeSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: 'Informe',
-        enum: ['Informe', 'Embargo']
+        enum: ['Informe', 'Embargo', 'Ampliación de Embargo']
     },
     state: {
         type: String,
