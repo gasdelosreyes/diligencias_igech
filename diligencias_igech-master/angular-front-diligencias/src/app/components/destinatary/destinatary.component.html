@@ -1,24 +1,25 @@
-<div class="main-content" >
+<div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Nuevo Destino</h4>
+                        <h4 class="title" *ngIf="mode==='create'">Nuevo Destino</h4>
+                        <h4 class="title" *ngIf="mode==='edit'">Formulario Destino</h4>
                     </div>
                     <div class="content">
-                        <form #destinataryForm="ngForm" (ngSubmit)="addDestinatary(destinataryForm)">
+                        <form #destinataryForm="ngForm" (ngSubmit)="saveDestinatary(destinataryForm)">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nombre/Descripción</label>
-                                        <input type="text" class="form-control" name="name" ngModel required #name="ngModel"placeholder="Denominación">
+                                        <input type="text" class="form-control" name="name" [ngModel]="destinatary?.name" required #name="ngModel" placeholder="Denominación">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Teléfono</label>
-                                        <input type="text" class="form-control" name="contact" ngModel required #contact="ngModel" placeholder="Teléfono">
+                                        <input type="text" class="form-control" name="contact" [ngModel]="destinatary?.contact" required #contact="ngModel" placeholder="Teléfono">
                                     </div>
                                 </div>
                             </div>
@@ -27,7 +28,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Dirección</label>
-                                        <input type="text" class="form-control" name="address" ngModel required #address="ngModel" placeholder="Dirección">
+                                        <input type="text" class="form-control" name="address" [ngModel]="destinatary?.address" required #address="ngModel" placeholder="Dirección">
                                     </div>
                                 </div>
                             </div>
@@ -36,19 +37,20 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Costo</label>
-                                        <input type="number" class="form-control" name="cost" ngModel required #cost="ngModel"  placeholder="$ Costo">
+                                        <input type="number" class="form-control" name="cost" [ngModel]="destinatary?.cost" required #cost="ngModel" placeholder="$ Costo">
                                     </div>
-                                </div>                               
-                               
+                                </div>
+
                             </div>
-                          
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Guardar</button>
+
+                            <button type="submit" class="btn btn-success btn-fill pull-right" *ngIf="mode==='create'">Crear</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" *ngIf="mode==='edit'">Guardar</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

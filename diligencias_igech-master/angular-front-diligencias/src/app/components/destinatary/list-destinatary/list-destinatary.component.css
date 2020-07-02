@@ -4,6 +4,13 @@
 }
 
 #search {
+    display: inline-block;
     margin-bottom: 2rem;
+    text-align: center;
     width: 15em;
+}
+
+#createButton {
+    display: inline-block;
+    margin-left: 3rem;
 }
