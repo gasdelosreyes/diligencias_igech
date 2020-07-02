@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { ListDestinataryComponent } from './components/destinatary/list-destinatary/list-destinatary.component';
+import { ListCourtsComponent } from './components/list-courts/list-courts.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { ListDestinataryComponent } from './components/destinatary/list-destinat
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    ListDestinataryComponent
+    ListDestinataryComponent,
+    ListCourtsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
