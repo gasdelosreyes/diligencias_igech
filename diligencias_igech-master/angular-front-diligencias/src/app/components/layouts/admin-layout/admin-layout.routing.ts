@@ -6,6 +6,7 @@ import { ListDestinataryComponent } from '../../destinatary/list-destinatary/lis
 import { TypographyComponent } from '../../typography/typography.component';
 import { DestinataryComponent } from '../../destinatary/destinatary.component';
 import { FormCourtsComponent } from '../../court/form-courts/form-courts.component';
+import { ListCourtsComponent } from '../../court/list-courts/list-courts.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -15,5 +16,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'expedientes',     component: TypographyComponent },
     { path: 'destinos/crear',          component: DestinataryComponent },
     { path: 'destinos/editar/:destinataryId', component: DestinataryComponent },
-    { path: 'juzgados',  component: FormCourtsComponent },
+    { path: 'juzgados',  component: ListCourtsComponent },
+    { path: 'juzgados/crear',  component: FormCourtsComponent },
+    { path: 'juzgados/editar/:courtId',  component: FormCourtsComponent },
 ];

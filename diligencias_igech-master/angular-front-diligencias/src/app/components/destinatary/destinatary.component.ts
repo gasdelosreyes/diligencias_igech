@@ -41,7 +41,6 @@ export class DestinataryComponent implements OnInit {
         })
       } else{
         this.mode = "create";
-        console.log(this.mode);
         this.destinataryId = null;
       }
     });

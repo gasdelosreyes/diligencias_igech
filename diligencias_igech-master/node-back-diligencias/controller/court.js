@@ -56,7 +56,7 @@ const controller = {
         }
         court.remove();
         res.status(200).json({
-            successs: true,
+            success: true,
             msg: 'Court deleted'
         });
     })

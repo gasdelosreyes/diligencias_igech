@@ -15,7 +15,7 @@ import { UserComponent } from '../../user/user.component';
 import { ListDestinataryComponent } from '../../destinatary/list-destinatary/list-destinatary.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import {DestinataryComponent} from '../../destinatary/destinatary.component';
-import {CourtComponent} from '../../court/court.component';
+import { FormCourtsComponent } from '../../court/form-courts/form-courts.component';
 
 
 @NgModule({
@@ -29,11 +29,9 @@ import {CourtComponent} from '../../court/court.component';
   declarations: [
     HomeComponent,
     UserComponent,
-    // ListDestinataryComponent,
-    // TablesComponent,
     TypographyComponent,
     DestinataryComponent,
-    CourtComponent
+    FormCourtsComponent
   ]
 })
 

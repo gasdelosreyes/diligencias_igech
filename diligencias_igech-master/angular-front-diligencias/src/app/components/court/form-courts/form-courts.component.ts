@@ -11,7 +11,7 @@ import { Court } from 'app/models/court';
   styleUrls: ['./form-courts.component.css']
 })
 export class FormCourtsComponent implements OnInit {
-  private mode : String;
+  public mode : String;
   private courtId: String;
   private court: Court;
 
@@ -24,6 +24,9 @@ export class FormCourtsComponent implements OnInit {
         this.service.getSingleCourt(this.courtId).subscribe(res => {
           this.court = res.data;
         });
+      }else{
+        this.mode = 'create';
+        this.courtId = null;
       }
     });
   }

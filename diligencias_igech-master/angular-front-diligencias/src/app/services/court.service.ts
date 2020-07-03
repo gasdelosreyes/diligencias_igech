@@ -10,13 +10,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class CourtService {
-
-	// selectedCourt:Court;
 	private courts: Court[] = [];
-    private courtUpdated = new Subject<Court[]>();
-
-    readonly URL_API ='http://localhost:3000/diligence/court';
-
+  private courtUpdated = new Subject<Court[]>();
+  readonly URL_API ='http://localhost:3000/diligence/court';
 
     constructor(private http : HttpClient, private router: Router) {}
      getAllCourts(){
@@ -75,7 +71,7 @@ export class CourtService {
       });
     }
 
-    delteCourt(courtId: String){
+    deleteCourt(courtId: String){
       this.http.delete<{success: Boolean, msg: String}>(
         `${this.URL_API}/${courtId}`
       ).subscribe(res => {

@@ -18,7 +18,6 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { ListDestinataryComponent } from './components/destinatary/list-destinatary/list-destinatary.component';
 import { ListCourtsComponent } from './components/court/list-courts/list-courts.component';
-import { FormCourtsComponent } from './components/court/form-courts/form-courts.component';
 
 @NgModule({
   imports: [
@@ -27,19 +26,18 @@ import { FormCourtsComponent } from './components/court/form-courts/form-courts.
     RouterModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule,    
+    MatSortModule,
     HttpClientModule,
     NavbarModule,
     FooterModule,
-    SidebarModule,    
+    SidebarModule,
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     ListDestinataryComponent,
-    ListCourtsComponent,
-    FormCourtsComponent
+    ListCourtsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

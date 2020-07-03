@@ -24,7 +24,8 @@ export class ListCourtsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllCourts();
-    this.subscription = this.service.getCourtUpdatedListener().subscribe((data: Court[]) => {
+    this.subscription = this.service.getCourtUpdatedListener()
+    .subscribe((data: Court[]) => {
       this.court = data;
       this.dataSource = new MatTableDataSource<Court>(this.court);
       this.dataSource.sort = this.sort;
@@ -38,7 +39,7 @@ export class ListCourtsComponent implements OnInit {
   }
 
   deleteCourt(court : Court){
-    this.service.delteCourt(court.id);
+    this.service.deleteCourt(court.id);
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
