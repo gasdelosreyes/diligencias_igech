@@ -23,4 +23,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+document.addEventListener('startNgLoad',() =>{
+  platformBrowserDynamic().bootstrapModule(AppModule);
+});
