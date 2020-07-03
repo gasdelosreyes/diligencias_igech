@@ -3,7 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {Court} from '../models/court';
+import { Court } from '../models/court';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class CourtService {
     readonly URL_API ='http://localhost:3000/diligence/court';
 
 
-    constructor(private http : HttpClient) {}
+    constructor(private http : HttpClient, private router: Router) {}
      getAllCourts(){
       this.http
       .get<{success: Boolean, data: any}>(
@@ -28,7 +29,7 @@ export class CourtService {
           return {
             name: court.name,
             description: court.description,
-            address: court.address,            
+            address: court.address,
             id: court._id
           };
         });
@@ -39,22 +40,49 @@ export class CourtService {
       });
     }
 
-    // MÉTODO PARA GUARDAR UN NUEVO JUZGADO
-    createCourts(name: String, description: String, address: String){
-      const court : Court = {id: null, name, description, address};
+    getCourtUpdatedListener(){
+      return this.courtUpdated.asObservable();
+    }
+
+    getSingleCourt(courtId: String){
+      return this.http.get<{success: Boolean, data: Court}>(
+        `${this.URL_API}/${courtId}`
+      );
+    }
+
+    createCourts(court : Court){
       this.http
-      .post<{success: Boolean, data: any}>(
+      .post<{success: Boolean, data: Court}>(
         `${this.URL_API}`, court
       )
       .subscribe(res =>{
         if(res.success === true){
-          let id = res.data._id;
+          let id = res.data.id;
           court.id = id;
           this.courts.push(court);
           this.courtUpdated.next([...this.courts]);
+          this.router.navigate(['/juzgados']);
         }
       });
     }
 
-  
+    updateCourt(court: Court){
+      this.http.put<{success: Boolean, data: Court}>(
+        `${this.URL_API}/${court.id}`, court
+      ).subscribe(res => {
+        this.courtUpdated.next([...this.courts]);
+        this.router.navigate(['/juzgados']);
+      });
+    }
+
+    delteCourt(courtId: String){
+      this.http.delete<{success: Boolean, msg: String}>(
+        `${this.URL_API}/${courtId}`
+      ).subscribe(res => {
+        if(res.success === true){
+          this.courts = this.courts.filter(court => court.id !== courtId);
+          this.courtUpdated.next([...this.courts]);
+        }
+      });
+    }
 }

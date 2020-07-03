@@ -17,9 +17,10 @@ import { MatSort } from '@angular/material/sort';
 })
 
 export class ListDestinataryComponent implements OnInit {
-  destinatary: Destinatary[] = [];
+  public destinatary: Destinatary[] = [];
   public dataSource : MatTableDataSource<Destinatary>;
   private subscription : Subscription;
+
   constructor(public service : DestinataryService) {}
   displayedColumns: string[] = ['name', 'address', 'contact', 'cost','action'];
 
