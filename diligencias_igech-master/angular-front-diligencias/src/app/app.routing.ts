@@ -6,11 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 
 const routes: Routes =[
-  // {
-  //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // }, 
   {
     path: '',
     component: AdminLayoutComponent,
@@ -18,11 +13,7 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './components/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]},
-  // {
-  //   path: '**',
-  //   redirectTo: 'dashboard'
-  // }
+  }]}
 ];
 
 @NgModule({

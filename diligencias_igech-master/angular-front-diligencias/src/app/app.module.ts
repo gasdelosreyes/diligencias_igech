@@ -18,15 +18,13 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { ListDestinataryComponent } from './components/destinatary/list-destinatary/list-destinatary.component';
 import { ListCourtsComponent } from './components/court/list-courts/list-courts.component';
+import { ListSecretaryComponent } from './components/secretary/list-secretary/list-secretary.component';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     HttpClientModule,
     NavbarModule,
     FooterModule,
@@ -36,8 +34,6 @@ import { ListCourtsComponent } from './components/court/list-courts/list-courts.
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    ListDestinataryComponent,
-    ListCourtsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

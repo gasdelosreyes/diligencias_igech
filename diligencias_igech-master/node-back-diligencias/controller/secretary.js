@@ -13,6 +13,18 @@ const controller = {
             data: secretary
         });
     }),
+    getCourtSecretarys: asyncHandler(async(req, res, next) => {
+        let court = await Court.findById(req.params.courtId);
+        if (!court) {
+            return (next(new ErrorResponse(`There's no Court associated`, 404)));
+        }
+        let secretary = await Secretary.find({ court: req.params.courtId });
+        res.status(200).json({
+            success: true,
+            count: secretary.length,
+            data: secretary
+        });
+    }),
     getSingleSecretary: asyncHandler(async(req, res, next) => {
         let secretary = await Secretary.findById(req.params.id);
         if (!secretary) {
@@ -29,15 +41,11 @@ const controller = {
         if (!court) {
             return (next(new ErrorResponse(`There's no Court associated`, 404)));
         }
-        if (!secretary) {
-            let secretary = await Secretary.create(req.body);
-            res.status(200).json({
-                success: true,
-                data: secretary
-            });
-        } else {
-            return (next(new ErrorResponse(`There's a Secretary with that number in this court`, 404)));
-        }
+        let secretary = await Secretary.create(req.body);
+        res.status(200).json({
+            success: true,
+            data: secretary
+        })
     }),
     updateSecretary: asyncHandler(async(req, res, next) => {
         let secretary = await Secretary.findById(req.params.id);
