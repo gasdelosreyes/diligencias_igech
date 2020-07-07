@@ -46,10 +46,9 @@ const secretary = require('./routes/secretary');
 //Montar rutas primarias
 app.use('/diligence/record', record);
 app.use('/diligence/court', court);
-app.use('/diligence/secretary', secretary);
 app.use('/diligence/destinatary', destinatary);
-
-//Manejador de errores
+app.use('/diligence/secretary', secretary)
+    //Manejador de errores
 app.use(errorHandler);
 
 //Variables de entorno

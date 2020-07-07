@@ -17,20 +17,13 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import { ListDestinataryComponent } from './components/destinatary/list-destinatary/list-destinatary.component';
-<<<<<<< HEAD
-import { ListCourtsComponent } from './components/court/list-courts/list-courts.component';
-=======
-import { ListCourtsComponent } from './components/list-courts/list-courts.component';
->>>>>>> 661d160a56183774d970e2dcd9b9891c6dfb6be3
+
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
     HttpClientModule,
     NavbarModule,
     FooterModule,
@@ -40,8 +33,6 @@ import { ListCourtsComponent } from './components/list-courts/list-courts.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    ListDestinataryComponent,
-    ListCourtsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

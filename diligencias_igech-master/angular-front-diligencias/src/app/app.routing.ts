@@ -9,7 +9,7 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
 // import {AuthGuard} from './components/shared/guards/auth.guard';
 
 const routes: Routes =[
-  
+
   {
     path: '',
     component: AdminLayoutComponent,
@@ -20,11 +20,7 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './components/layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]},
-  // {
-  //   path: '**',
-  //   redirectTo: 'dashboard'
-  // }
+  }]}
 ];
 
 @NgModule({
