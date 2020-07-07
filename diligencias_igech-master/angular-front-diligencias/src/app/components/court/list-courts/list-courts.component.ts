@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Court } from '../../../models/court';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,9 +6,7 @@ import { Subscription } from 'rxjs';
 import { CourtService } from '../../../services/court.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-=======
-import { Component, OnInit } from '@angular/core';
->>>>>>> 661d160a56183774d970e2dcd9b9891c6dfb6be3
+
 
 @Component({
   selector: 'app-list-courts',
@@ -16,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-courts.component.css']
 })
 export class ListCourtsComponent implements OnInit {
-<<<<<<< HEAD
+
   public court : Court[] = [];
   public dataSource: MatTableDataSource<Court>;
   private subscription : Subscription;
@@ -49,12 +47,5 @@ export class ListCourtsComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-=======
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
->>>>>>> 661d160a56183774d970e2dcd9b9891c6dfb6be3
 }

@@ -13,7 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/expedientes', title: 'Expedientes',  icon:'pe-7s-folder', class: '' },
     { path: '/destinos', title: 'Destinos',  icon:'pe-7s-map-marker', class: '' },
     { path: '/juzgados', title: 'Juzgados',  icon:'pe-7s-culture', class: '' },
-    { path: '/usuarios', title: 'Usuarios',  icon:'pe-7s-user', class: '' }
+    { path: '/usuarios', title: 'Usuarios',  icon:'pe-7s-user', class: '' },
+    
 ];
 
 @Component({

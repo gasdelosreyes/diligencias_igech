@@ -9,13 +9,12 @@ import { FormCourtsComponent } from '../../court/form-courts/form-courts.compone
 import { ListCourtsComponent } from '../../court/list-courts/list-courts.component';
 import { FormSecretaryComponent } from '../../secretary/form-secretary/form-secretary.component';
 import { ListSecretaryComponent } from '../../secretary/list-secretary/list-secretary.component';
-
+import { LoginComponent } from '../../layouts/auth/login/login.component'; 
 // importamos para la autenticacion de usuarios
 // import {AuthGuard} from '../../shared/guards/auth.guard';
 
 
 export const AdminLayoutRoutes: Routes = [   
-
 
     { path: 'destinos', component: ListDestinataryComponent },
     { path: 'expedientes', component: TypographyComponent },
@@ -25,5 +24,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'juzgados/crear',  component: FormCourtsComponent },
     { path: 'juzgados/editar/:courtId',  component: FormCourtsComponent },
     { path: 'juzgados/editar/:courtId/secretaria/crear', component: FormSecretaryComponent},
-    { path: 'secretaria/editar/:secretaryId', component: FormSecretaryComponent}
+    { path: 'secretaria/editar/:secretaryId', component: FormSecretaryComponent},
+    { path: 'login', component:LoginComponent}
 ];
