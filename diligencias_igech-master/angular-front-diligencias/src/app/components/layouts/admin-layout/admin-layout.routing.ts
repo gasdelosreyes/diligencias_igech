@@ -8,8 +8,12 @@ import { DestinataryComponent } from '../../destinatary/destinatary.component';
 import { FormCourtsComponent } from '../../court/form-courts/form-courts.component';
 import { ListCourtsComponent } from '../../court/list-courts/list-courts.component';
 
+// importamos para la autenticacion de usuarios
+// import {AuthGuard} from '../../shared/guards/auth.guard';
 
-export const AdminLayoutRoutes: Routes = [
+
+export const AdminLayoutRoutes: Routes = [   
+
     { path: 'dashboard',      component: HomeComponent },
     { path: 'usuarios',           component: UserComponent },
     { path: 'destinos', component: ListDestinataryComponent },

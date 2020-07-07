@@ -5,15 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 
+// importamos para la autenticacion de usuarios
+// import {AuthGuard} from './components/shared/guards/auth.guard';
+
 const routes: Routes =[
-  // {
-  //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // }, 
+  
   {
     path: '',
     component: AdminLayoutComponent,
+     // para controlar el logueo
+    // canActivate:[AuthGuard],
+
     children: [
         {
       path: '',
