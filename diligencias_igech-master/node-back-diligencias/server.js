@@ -41,13 +41,16 @@ const record = require('./routes/record');
 const court = require('./routes/court');
 const destinatary = require('./routes/destinatary');
 const secretary = require('./routes/secretary');
+const user = require('./routes/user');
 
 
 //Montar rutas primarias
 app.use('/diligence/record', record);
 app.use('/diligence/court', court);
 app.use('/diligence/destinatary', destinatary);
-app.use('/diligence/secretary', secretary)
+app.use('/diligence/secretary', secretary);
+app.use('/diligence/user',user)
+
     //Manejador de errores
 app.use(errorHandler);
 
