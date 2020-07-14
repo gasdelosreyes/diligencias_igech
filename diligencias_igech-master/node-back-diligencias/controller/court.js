@@ -1,7 +1,6 @@
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
-
-const Court = require('../model/Court');
+// const userController=require('../controller/user');
 
 const controller = {
     getCourts: asyncHandler(async(req, res, next) => {

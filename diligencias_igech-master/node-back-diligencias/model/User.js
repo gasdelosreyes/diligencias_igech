@@ -13,5 +13,10 @@ var UserSchema=new mongoose.Schema({
 		trim:true,
 		required:[true,'The user needs a password']
 	}
-});
+
+ } , 
+	{
+		timestamps:true
+	}
+);
 module.exports=mongoose.model('User',UserSchema);

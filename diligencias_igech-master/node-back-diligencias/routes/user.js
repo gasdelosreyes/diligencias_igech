@@ -9,10 +9,13 @@ const userController=require('../controller/user');
 const userRouters= require ('../routes/user');
 
 // Link the http requests
-router.route('/').get(userController.getUsers);
-
+router.route('/').get(userController.verifyToken,userController.getUsers);
 // Las rutas primarias están montadas en el archivo de server.js, lee de ahí el string previo
 // o sea, /diligence/user/signup
 router.route('/signup').post(userController.createUser);
+// permitirá el login de usuarios
+router.route('/signin').post(userController.loginUser);
+
+
 
 module.exports = router;
