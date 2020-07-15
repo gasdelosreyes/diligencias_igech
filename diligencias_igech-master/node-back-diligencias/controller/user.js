@@ -80,8 +80,9 @@ const controller= {
 
         }),
 
-      verifyToken: (req,res,next) => {          
-          if(!req.headers.authorization) return res.status(401).send('Unauthorized Request') ;  
+      verifyToken: (req,res,next) => {  
+          //SINO EXISTE REQUEST HEADER DEVUELVE DESAUTORIZADO 
+          if(!req.headers.authorization) {return res.status(401).send('Unauthorized Request')};  
 
           console.log(req.headers.authorization);   
       }
