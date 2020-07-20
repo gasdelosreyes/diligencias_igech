@@ -8,17 +8,10 @@ import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './components/shared/navbar/navbar.module';
 import { FooterModule } from './components/shared/footer/footer.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-
 
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
-import { ListDestinataryComponent } from './components/destinatary/list-destinatary/list-destinatary.component';
-import { ListCourtsComponent } from './components/court/list-courts/list-courts.component';
-import { ListSecretaryComponent } from './components/secretary/list-secretary/list-secretary.component';
 
 @NgModule({
   imports: [
@@ -33,7 +26,7 @@ import { ListSecretaryComponent } from './components/secretary/list-secretary/li
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
+    AdminLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

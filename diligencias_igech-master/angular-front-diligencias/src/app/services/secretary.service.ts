@@ -23,14 +23,12 @@ export class SecretaryService {
     )
     .pipe(map((secretaryData) => {
       return secretaryData.data.map(secretary => {
-        if (secretary.court === courtId) {
           return {
             number: secretary.number,
             court: secretary.court,
             description: secretary.description,
             id: secretary._id
           };
-        }
       });
     }))
     .subscribe(transformedSecretarys => {
@@ -45,6 +43,12 @@ export class SecretaryService {
   getSingleSecretary(secretaryId){
     return this.http.get<{success: Boolean, data: Secretary}>(
       `${this.URL_API_SECRETARY}/${secretaryId}`
+    );
+  }
+
+  getDropdownSecretary(courtId){
+    return this.http.get<{success: Boolean, data: any}>(
+      `${this.URL_API_COURT}/${courtId}/secretary`
     );
   }
 
@@ -66,7 +70,9 @@ export class SecretaryService {
     this.http.put<{success: Boolean, data: Secretary}>(
       `${this.URL_API_SECRETARY}/${secretary.id}`, secretary
     ).subscribe(res => {
-      this.secretaryUpdated.next([...this.secretarys]);
+      if(res.success === true){
+        this.secretaryUpdated.next([...this.secretarys]);
+      }
     });
   }
 

@@ -25,13 +25,22 @@ export class ListSecretaryComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  openDialog(){
+  openDialog(id : String){
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { route: this.router}
+    if(id === undefined){
+      dialogConfig.data = { route: this.router}
+    }else{
+      dialogConfig.data = { route: this.router, id}
+    }
     this.dialog.open(FormSecretaryComponent,dialogConfig);
+    let dialogRef = this.dialog.open(FormSecretaryComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(() => {
+      this.dialog.closeAll();
+      this.ngOnInit();
+    });
   }
 
   ngOnInit(): void {

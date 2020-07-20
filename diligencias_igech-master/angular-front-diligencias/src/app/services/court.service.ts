@@ -40,6 +40,12 @@ export class CourtService {
       return this.courtUpdated.asObservable();
     }
 
+    getDropdown(){
+      return this.http.get<{success: Boolean, data: any}>(
+        `${this.URL_API}`
+      )
+    }
+
     getSingleCourt(courtId: String){
       return this.http.get<{success: Boolean, data: Court}>(
         `${this.URL_API}/${courtId}`
@@ -48,13 +54,12 @@ export class CourtService {
 
     createCourts(court : Court){
       this.http
-      .post<{success: Boolean, data: Court}>(
+      .post<{success: Boolean, data: any}>(
         `${this.URL_API}`, court
       )
       .subscribe(res =>{
         if(res.success === true){
-          let id = res.data.id;
-          court.id = id;
+          court.id = res.data._id;
           this.courts.push(court);
           this.courtUpdated.next([...this.courts]);
           this.router.navigate(['/juzgados']);

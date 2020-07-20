@@ -23,9 +23,9 @@ const controller = {
         });
     }),
     createCourt: asyncHandler(async(req, res, next) => {
-        let court = await Court.findOne({ 'name': req.body.name });
+        let court = await Court.findOne({ name: req.body.name });
         if (!court) {
-            let court = await Court.create(req.body);
+            court = await Court.create(req.body);
             res.status(200).json({
                 success: true,
                 data: court
@@ -33,7 +33,6 @@ const controller = {
         } else {
             return (next(new ErrorResponse(`There's already a Court with that number`)));
         }
-
     }),
     updateCourt: asyncHandler(async(req, res, next) => {
         let court = await Court.findById(req.params.id);

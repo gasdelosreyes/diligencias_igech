@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { LbdModule } from '../../lbd/lbd.module';
 //import { NguiMapModule} from '@ngui/map';
 
@@ -15,6 +15,8 @@ import { TypographyComponent } from '../../typography/typography.component';
 import {DestinataryComponent} from '../../destinatary/destinatary.component';
 import { FormCourtsComponent } from '../../court/form-courts/form-courts.component';
 import { FormSecretaryComponent } from '../../secretary/form-secretary/form-secretary.component';
+import { FormRecordComponent } from '../../record/form-record/form-record.component';
+import { ListRecordComponent } from 'app/components/record/list-record/list-record.component';
 import { ListSecretaryComponent } from '../../secretary/list-secretary/list-secretary.component';
 import { ListDestinataryComponent } from '../../destinatary/list-destinatary/list-destinatary.component';
 import { ListCourtsComponent } from '../../court/list-courts/list-courts.component';
@@ -32,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatFormFieldModule,
     LbdModule
   ],
   declarations: [
@@ -41,6 +44,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     DestinataryComponent,
     FormCourtsComponent,
     FormSecretaryComponent,
+    FormRecordComponent,
+    ListRecordComponent,
     ListSecretaryComponent,
     ListDestinataryComponent,
     ListCourtsComponent

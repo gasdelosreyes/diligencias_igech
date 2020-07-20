@@ -4,8 +4,7 @@ var CourtSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
-        required: [true, `The court needs an identification number`],
-        unique: true
+        required: [true, `The court needs an identification number`]
     },
     description: {
         type: String,

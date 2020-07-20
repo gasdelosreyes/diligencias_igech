@@ -21,25 +21,23 @@ export class FormSecretaryComponent implements OnInit {
   constructor(
     public service : SecretaryService
     , public router: ActivatedRoute
-    , @Inject(MAT_DIALOG_DATA) data: {route: ActivatedRoute}
+    , @Inject(MAT_DIALOG_DATA) data: {route: ActivatedRoute, id: String}
     , private dialogRef: MatDialogRef<ListSecretaryComponent>
     ) {
       data.route.params.subscribe(params => {this.courtId = params.courtId});
+      this.secretaryId = data.id;
     }
+
   ngOnInit(): void {
-    this.router.paramMap.subscribe((paramMap : ParamMap) => {
-      if(paramMap.has("courtId") && paramMap.has("secretaryId")){
+      if(!this.secretaryId){
+        this.mode = 'create';
+        this.secretaryId = null;
+      }else{
         this.mode = 'edit';
-        this.secretaryId = paramMap.get("secretaryId");
-        this.courtId = paramMap.get("courtId");
         this.service.getSingleSecretary(this.secretaryId).subscribe(res => {
           this.secretary = res.data;
         });
-      }else{
-        this.mode = 'create';
-        this.secretaryId = null;
       }
-    });
   }
   saveSecretary(form: NgForm){
     if(form.invalid){

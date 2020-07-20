@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Expedientes</h2>
+<mat-dialog-content>
+    <form #recordForm="ngForm" (ngSubmit)="saveRecord(recordForm)">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Número</label>
+                    <input type="text" class="form-control" name="number" [ngModel]="record?.number" required #number="ngModel" placeholder="Denominación">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Carátula</label>
+                    <input type="text" class="form-control" name="description" [ngModel]="record?.cover" required #cover="ngModel" placeholder="Carátula">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Deudor</label>
+                    <input type="number" class="form-control" name="description" [ngModel]="record?.debtor" required #debtor="ngModel" placeholder="D.N.I Deudor">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Juzgado</label>
+                        <select (change)="onSelect($event.target.value)">
+                      <option *ngFor="let court of courtArray" value="{{court._id}}">
+                        {{court.name}}
+                      </option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Secretaria</label>
+                        <select (change)="onSelect($event.target.value)">
+                      <option *ngFor="let secretary of secretaryArray" value="{{secretary._id}}">
+                        {{secretary.number}}
+                      </option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Cancelar</button>
+    <button class="mat-raised-button mat-primary" *ngIf="mode === 'create'" (click)="saveRecord(form)">Crear</button>
+    <button class="mat-raised-button mat-primary" *ngIf="mode === 'edit'" (click)="saveRecord(form)">Guardar</button>
+</mat-dialog-actions>
