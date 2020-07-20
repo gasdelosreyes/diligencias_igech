@@ -82,9 +82,24 @@ const controller= {
 
       verifyToken: (req,res,next) => {  
           //SINO EXISTE REQUEST HEADER DEVUELVE DESAUTORIZADO 
-          if(!req.headers.authorization) {return res.status(401).send('Unauthorized Request')};  
+          if(!req.headers.authorization) return res.status(401).send('Unauthorized Request');  
 
           console.log(req.headers.authorization);   
+          // obtener de la cabecera solo el token, quitando el texto bearer
+          // .split(' '), encuentra el espacio y separa. 
+          // Formando un array, por lo tanto el token se ncuentra en la posición 1
+          const token= req.headers.authorization.split(' ')[1]
+          if (token===null) return res.status(401).send('Unauthorized Request');
+
+
+          // secretkey es la llave privada, obtiene los datos dentro del token
+          // se muestra por consola del servidor
+          const payload = jwt.verify(token, 'secretKey');
+          console.log (payload);
+          // payload lo guardamos para que los demás métodos y funciones puedan utilizarlo
+          // ejemplo de payload { _id: '5f0b6145c29bf01d14ec08c3', iat: 1594815998 }
+          req.userId = payload._id;
+          next();          
       }
  }
    
