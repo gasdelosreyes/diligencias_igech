@@ -20,6 +20,8 @@ import { ListRecordComponent } from 'app/components/record/list-record/list-reco
 import { ListSecretaryComponent } from '../../secretary/list-secretary/list-secretary.component';
 import { ListDestinataryComponent } from '../../destinatary/list-destinatary/list-destinatary.component';
 import { ListCourtsComponent } from '../../court/list-courts/list-courts.component';
+
+import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -33,6 +35,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSelectModule,
     MatDialogModule,
     MatFormFieldModule,
     LbdModule
