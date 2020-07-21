@@ -20,33 +20,30 @@
                     <input type="number" class="form-control" name="description" [ngModel]="record?.debtor" required #debtor="ngModel" placeholder="D.N.I Deudor">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Juzgado</label>
-                        <select (change)="onSelect($event.target.value)">
-                      <option *ngFor="let court of courtArray" value="{{court._id}}">
-                        {{court.name}}
-                      </option>
-                    </select>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Juzgado</label>
+                            <select (change)="onSelectCourt($event.target.value)">
+                              <option *ngFor="let court of courtArray" value="{{court._id}}">
+                                {{court.name}}
+                              </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Secretaria</label>
+                            <select (change)="onSelectSecretary($event.target.value)">
+                              <option *ngFor="let secretary of secretaryArray" value="{{secretary._id}}">
+                                {{secretary.number}}
+                              </option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <!-- <div class="form-group">
-                        <label>Secretaria</label>
-                        <select (change)="onSelect($event.target.value)">
-                      <option *ngFor="let secretary of secretaryArray" value="{{secretary._id}}">
-                        {{secretary.number}}
-                      </option>
-                    </select> -->
-                    <mat-select>
-                        <mat-option *ngFor="let secretary of secretaryArray" [value]="{{secretary._id}}">
-                            {{secretary.number}}
-                        </mat-option>
-                    </mat-select>
-                </div>
             </div>
-        </div>
         </div>
         <div class="clearfix"></div>
     </form>

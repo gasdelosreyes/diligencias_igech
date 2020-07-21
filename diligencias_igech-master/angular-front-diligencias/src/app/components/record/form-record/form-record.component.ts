@@ -22,10 +22,9 @@ export class FormRecordComponent implements OnInit {
   private recordId: String;
   private record : Record;
 
-  public selectedCourt: Court;
   public courtArray : Court[];
 
-  public selectedSecretary: Secretary;
+  public secretaryId: String;
   public secretaryArray: Secretary[];
 
   public subscription : Subscription;
@@ -56,13 +55,15 @@ export class FormRecordComponent implements OnInit {
     }
   }
 
-  onSelect(courtId: any){
+  onSelectCourt(courtId: any){
     this.serviceSecretary.getDropdownSecretary(courtId).subscribe(res => {
       this.secretaryArray = res.data;
-      console.log(this.secretaryArray);
     })
   }
 
+  onSelectSecretary(secretaryId: any){
+    this.secretaryId = secretaryId;
+  }
   saveRecord(form: NgForm){
     if(form.invalid){
       return;
