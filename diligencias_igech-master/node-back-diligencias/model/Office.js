@@ -26,8 +26,8 @@ var OfficeSchema = new mongoose.Schema({
     state: {
         type: String,
         required: true,
-        default: 'Inicio',
-        enum: ['Inicio, Medio, Fin']
+        default: 'Suscripción',
+        enum: ['Suscripción', 'Pendiente de pago', 'En Diligencia', 'Diligenciado']
     },
     createdAt: {
         type: Date,

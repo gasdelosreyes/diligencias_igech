@@ -1,23 +1,21 @@
-<h2 mat-dialog-title>Expedientes</h2>
+<h2 mat-dialog-title>Oficio</h2>
 <mat-dialog-content>
-    <form #recordForm="ngForm" (ngSubmit)="saveRecord(recordForm)">
+    <form #officeForm="ngForm" (ngSubmit)="saveOffice(officeForm)">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Número</label>
-                    <input type="text" class="form-control" name="number" [ngModel]="record?.number" required #number="ngModel" placeholder="Denominación">
+                    <input type="text" class="form-control" name="number" [ngModel]="office?.number" required #number="ngModel" placeholder="N° Oficio">
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Carátula</label>
-                    <input type="text" class="form-control" name="cover" [ngModel]="record?.cover" required #cover="ngModel" placeholder="Carátula">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Deudor</label>
-                    <input type="number" class="form-control" name="debtor" [ngModel]="record?.debtor" required #debtor="ngModel" placeholder="D.N.I Deudor">
+                    <label>Tipo de Oficio</label>
+                    <select class="form-control" name="type">
+                      <option *ngFor="let type of typeArray" value={{type.name}}>
+                        {{type.name}}
+                      </option>
+                    </select>
                 </div>
             </div>
             <div class="col-md-12">
@@ -55,7 +53,7 @@
 <mat-dialog-actions>
     <div class="buttons">
         <button class="mat-raised-button" (click)="close()">Cancelar</button>
-        <button class="mat-raised-button mat-primary" *ngIf="mode === 'create'" (click)="saveRecord(recordForm)">Crear</button>
-        <button class="mat-raised-button mat-primary" *ngIf="mode === 'edit'" (click)="saveRecord(recordForm)">Guardar</button>
+        <button class="mat-raised-button mat-primary" *ngIf="mode === 'create'" (click)="saveoffice(officeForm)">Crear</button>
+        <button class="mat-raised-button mat-primary" *ngIf="mode === 'edit'" (click)="saveoffice(officeForm)">Guardar</button>
     </div>
 </mat-dialog-actions>

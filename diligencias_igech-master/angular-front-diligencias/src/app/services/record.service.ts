@@ -25,7 +25,8 @@ export class RecordService {
         return {
           number: record.number,
           cover: record.cover,
-          secretary: record.secretary,
+          secretary: record.secretary.number,
+          court: record.secretary.court.name,
           debtor: record.debtor,
           id: record._id
         };

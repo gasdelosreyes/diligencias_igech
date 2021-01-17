@@ -13,7 +13,7 @@ const controller = {
     //@route GET /diligencias/office
     //@access privado (Todos los usuarios)
     getOffices: asyncHandler(async(req, res, next) => {
-        let offices = await Office.find();
+        let offices = await Office.find().populate({ path: 'record' });
         res.status(200).json({
             success: true,
             count: offices.length,
@@ -31,7 +31,6 @@ const controller = {
         });
     }),
     createOffice: asyncHandler(async(req, res, next) => {
-        console.log("ESTOY EN EL CONTROLADOR");
         req.body.record = req.params.recordId;
         let record = await Record.findById(req.body.record);
         if (!record) {

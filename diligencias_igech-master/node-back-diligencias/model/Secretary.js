@@ -17,4 +17,8 @@ var SecretarySchema = new mongoose.Schema({
     }
 });
 
+SecretarySchema.pre('remove', async function(next) {
+    await this.model('Record').deleteMany({ secretary: this._id });
+    next();
+})
 module.exports = mongoose.model('Secretary', SecretarySchema);

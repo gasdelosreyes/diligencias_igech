@@ -13,7 +13,10 @@
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Expediente </th>
                             <td mat-cell *matCellDef="let record"> {{record.number}} </td>
                         </ng-container>
-
+                        <ng-container matColumnDef="court">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Juzgado </th>
+                            <td mat-cell *matCellDef="let record"> {{record.court}} </td>
+                        </ng-container>
                         <ng-container matColumnDef="cover">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Carátula </th>
                             <td mat-cell *matCellDef="let record"> {{record.cover}} </td>
@@ -32,6 +35,7 @@
                         <ng-container matColumnDef="action">
                             <th mat-header-cell *matHeaderCellDef> Acción </th>
                             <td mat-cell *matCellDef="let record" class="action-link">
+                                <a [routerLink]="[record.id, 'oficios']" routerLinkActive="router-link-active" style="cursor: pointer;"><i class="material-icons">list</i></a>
                                 <a (click)="openDialog(record.id)" style="cursor: pointer;"><i class="material-icons">edit</i></a>
                                 <a (click)="deleteRecord(record)" style="cursor: pointer;"><i class="material-icons">delete_forever</i></a>
                             </td>

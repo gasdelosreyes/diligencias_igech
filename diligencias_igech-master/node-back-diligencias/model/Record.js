@@ -29,4 +29,9 @@ var RecordSchema = new mongoose.Schema({
     }
 });
 
+RecordSchema.pre('remove', async function(next) {
+    await this.model('Office').deleteMany({ record: this._id });
+    next();
+})
+
 module.exports = mongoose.model('Record', RecordSchema);

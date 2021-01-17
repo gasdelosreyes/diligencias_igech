@@ -19,7 +19,7 @@ export class ListRecordComponent implements OnInit {
   public dataSource : MatTableDataSource<Record>;
   private subscription : Subscription;
   constructor(private service : RecordService, public router: ActivatedRoute, private dialog: MatDialog) { }
-  displayedColumns: String[] = ['number','cover','debtor','secretary'];
+  displayedColumns: String[] = ['number','court','cover','debtor','secretary','action'];
 
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -40,16 +40,22 @@ export class ListRecordComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.router.paramMap.subscribe((paramMap : ParamMap) => {
-        this.service.getAllRecord();
-        this.subscription = this.service.getRecordUpdateListener()
-          .subscribe((data : Record[]) => {
-            this.record = data;
-            this.dataSource = new MatTableDataSource<Record>(this.record);
-            this.dataSource.sort = this.sort;
-            this.dataSource.paginator = this.paginator;
-          });
-    });
+    this.service.getAllRecord();
+    this.subscription = this.service.getRecordUpdateListener()
+      .subscribe((data : Record[]) => {
+        this.record = data;
+        this.dataSource = new MatTableDataSource<Record>(this.record);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      });
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }

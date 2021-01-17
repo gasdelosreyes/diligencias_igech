@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ListOfficesComponent } from '../../office/list-offices/list-offices.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormSecretaryComponent,
     FormRecordComponent,
     ListRecordComponent,
+    ListOfficesComponent,
     ListSecretaryComponent,
     ListDestinataryComponent,
     ListCourtsComponent

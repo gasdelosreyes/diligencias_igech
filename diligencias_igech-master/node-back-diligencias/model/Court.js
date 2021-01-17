@@ -17,4 +17,9 @@ var CourtSchema = new mongoose.Schema({
     }
 });
 
+CourtSchema.pre('remove', async function(next) {
+    await this.model('Secretary').deleteMany({ court: this._id });
+    next();
+});
+
 module.exports = mongoose.model('Court', CourtSchema);

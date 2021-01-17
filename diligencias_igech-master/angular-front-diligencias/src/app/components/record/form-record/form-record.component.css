@@ -1,5 +1,8 @@
 select {
-    margin-left: 10px;
-    width: 200px;
-    background-color: blue;
+    width: 50%;
+    background-color: rgb(242, 242, 248);
+}
+
+.buttons button {
+    margin-left: 15px;
 }

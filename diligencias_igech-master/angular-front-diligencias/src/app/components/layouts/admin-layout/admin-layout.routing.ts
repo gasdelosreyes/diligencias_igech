@@ -8,6 +8,7 @@ import { DestinataryComponent } from '../../destinatary/destinatary.component';
 import { FormCourtsComponent } from '../../court/form-courts/form-courts.component';
 import { ListCourtsComponent } from '../../court/list-courts/list-courts.component';
 import { ListRecordComponent } from '../../record/list-record/list-record.component';
+import { ListOfficesComponent } from '../../office/list-offices/list-offices.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -15,6 +16,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'usuarios', component: UserComponent },
     { path: 'destinos', component: ListDestinataryComponent },
     { path: 'expedientes', component: ListRecordComponent },
+    { path: 'expedientes/:recordId/oficios', component: ListOfficesComponent },
     { path: 'destinos/crear', component: DestinataryComponent },
     { path: 'destinos/editar/:destinataryId', component: DestinataryComponent },
     { path: 'juzgados',  component: ListCourtsComponent },
